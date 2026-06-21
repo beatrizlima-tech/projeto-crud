@@ -8,27 +8,59 @@ Esta aplicação implementa um sistema CRUD (Create, Read, Update e Delete) para
 
 ## Tecnologias Utilizadas
 
-- Java
-- Spring Boot
-- Spring Data JPA
-- MySQL
-- Maven
-- Postman
+* Java
+* Spring Boot
+* Spring Data JPA
+* MySQL
+* Maven
 
 ## Funcionalidades
 
-- Criar usuário
-- Buscar usuários
-- Buscar usuário por ID
-- Atualizar usuário
-- Excluir usuário
+* Criar usuário
+* Listar usuários
+* Buscar usuário por ID
+* Atualizar usuário
+* Excluir usuário
 
 ## Estrutura do Projeto
 
+* Controller
+* Service
+* Repository
+* Model
+
+## Como Executar
+
+### Pré-requisitos
+
+* Java 17 ou superior
+* Maven
+* MySQL
+
+### Clone o projeto
+
 ```bash
-src
-├── controller
-├── service
-├── repository
-├── model
-└── config
+git clone https://github.com/beatrizlima-tech/projeto-crud.git
+```
+
+### Execute a aplicação
+
+```bash
+mvn spring-boot:run
+```
+
+## Aprendizados
+
+Durante o desenvolvimento deste projeto foram praticados:
+
+* Desenvolvimento de APIs REST
+* Arquitetura em camadas
+* Integração com banco de dados MySQL
+* Persistência de dados com Spring Data JPA
+* Organização de projetos Spring Boot
+
+## Autora
+
+Beatriz Lima
+
+Desenvolvedora Full Stack Java
