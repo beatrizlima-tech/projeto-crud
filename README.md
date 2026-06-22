@@ -1,8 +1,10 @@
-# 📦 Projeto CRUD de Produtos
+# 📦 CRUD de Produtos com Java, JDBC e MySQL
 
-Aplicação desenvolvida em Java para gerenciamento de produtos utilizando JDBC, Maven e MySQL.
+Projeto desenvolvido para gerenciamento de produtos utilizando Java, JDBC e MySQL, implementando operações completas de CRUD (Create, Read, Update e Delete) com persistência em banco de dados relacional.
 
-O sistema permite realizar operações de cadastro, consulta, atualização e exclusão de produtos armazenados em banco de dados relacional.
+A aplicação segue uma arquitetura organizada em camadas, separando responsabilidades entre Controller, Repository, Entity e Factory, aplicando conceitos fundamentais do desenvolvimento backend.
+
+---
 
 ## 🚀 Tecnologias Utilizadas
 
@@ -13,16 +15,35 @@ O sistema permite realizar operações de cadastro, consulta, atualização e ex
 * SQL
 * Programação Orientada a Objetos (POO)
 
+---
+
 ## 📋 Funcionalidades
 
-* Cadastrar produtos
-* Consultar produtos cadastrados
-* Atualizar informações de produtos
-* Excluir produtos
-* Persistência de dados em banco MySQL
-* Conexão com banco de dados utilizando JDBC
+### Cadastro de Produtos
 
-## 🏗️ Estrutura do Projeto
+Permite registrar novos produtos informando:
+
+* Nome
+* Preço
+* Quantidade em estoque
+
+### Consulta de Produtos
+
+Lista todos os produtos cadastrados no banco de dados.
+
+### Atualização de Produtos
+
+Atualiza informações de produtos já cadastrados através do identificador único (ID).
+
+### Exclusão de Produtos
+
+Remove produtos da base de dados de forma segura utilizando o ID.
+
+---
+
+## 🏛️ Arquitetura do Projeto
+
+O projeto foi estruturado seguindo o padrão de separação de responsabilidades:
 
 ```text
 src
@@ -40,7 +61,20 @@ src
     └── ConnectionFactory
 ```
 
-## 📊 Modelo de Dados
+### Camadas
+
+| Camada     | Responsabilidade                  |
+| ---------- | --------------------------------- |
+| Controller | Receber entradas do usuário       |
+| Entity     | Representar os dados da aplicação |
+| Repository | Executar operações no banco       |
+| Factory    | Gerenciar conexões com o banco    |
+
+---
+
+## 🗄️ Banco de Dados
+
+### Estrutura da Tabela
 
 ```sql
 CREATE TABLE produtos(
@@ -51,69 +85,95 @@ CREATE TABLE produtos(
 );
 ```
 
-## 🖥️ Operações Disponíveis
+### Banco Utilizado
 
-### Cadastro
+```text
+MySQL
+```
 
-Permite registrar um novo produto informando:
-
-* Nome
-* Preço
-* Quantidade
-
-### Consulta
-
-Exibe todos os produtos cadastrados no banco de dados.
-
-### Atualização
-
-Permite alterar os dados de um produto existente através do ID.
-
-### Exclusão
-
-Remove um produto cadastrado utilizando seu ID.
-
-## ⚙️ Configuração do Banco de Dados
-
-Crie um banco de dados chamado:
+### Nome do Banco
 
 ```text
 bd_produtos
 ```
 
-Execute o script SQL disponível no projeto para criar a tabela de produtos.
+---
 
-Configure as credenciais de acesso na classe:
+## 🔌 Conexão com Banco de Dados
+
+A conexão é realizada através da classe:
 
 ```java
 ConnectionFactory
 ```
 
-## ▶️ Executando o Projeto
+Utilizando:
 
-Clone o repositório:
+* JDBC
+* Driver MySQL Connector/J
+* Maven para gerenciamento de dependências
+
+---
+
+## ▶️ Como Executar
+
+### 1. Clonar o projeto
 
 ```bash
 git clone https://github.com/beatrizlima-tech/projeto-crud.git
 ```
 
-Acesse a pasta do projeto e execute a aplicação Java.
+### 2. Criar o banco
 
-## 🎯 Objetivo do Projeto
+```sql
+CREATE DATABASE bd_produtos;
+```
 
-Projeto desenvolvido para praticar:
+### 3. Executar o script da tabela
 
-* Operações CRUD
-* JDBC
-* Integração Java com MySQL
-* Maven
+Disponível no projeto.
+
+### 4. Configurar usuário e senha
+
+Arquivo:
+
+```java
+ConnectionFactory.java
+```
+
+### 5. Executar a aplicação
+
+A aplicação poderá ser executada diretamente pela IDE.
+
+---
+
+## 📚 Conceitos Praticados
+
+Durante o desenvolvimento foram aplicados:
+
 * Programação Orientada a Objetos
-* Persistência de dados
-* Organização em camadas
+* Encapsulamento
+* JDBC
+* SQL
+* CRUD
+* Arquitetura em Camadas
+* Conexão com Banco de Dados
+* Maven
+* Tratamento de Exceções
+
+---
+
+## 🎯 Objetivo
+
+Este projeto foi desenvolvido com foco no aprendizado de integração entre aplicações Java e bancos de dados relacionais, explorando operações CRUD e boas práticas de organização de código backend.
+
+---
 
 ## 👩‍💻 Desenvolvedora
 
-Beatriz Lima
+**Beatriz Lima**
+
+Desenvolvedora Java Full Stack em formação.
 
 GitHub:
 https://github.com/beatrizlima-tech
