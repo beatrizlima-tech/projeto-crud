@@ -1,66 +1,119 @@
-# CRUD de Usuários
+# 📦 Projeto CRUD de Produtos
 
-Projeto desenvolvido para praticar conceitos de desenvolvimento backend utilizando Java e Spring Boot.
+Aplicação desenvolvida em Java para gerenciamento de produtos utilizando JDBC, Maven e MySQL.
 
-## Sobre o Projeto
+O sistema permite realizar operações de cadastro, consulta, atualização e exclusão de produtos armazenados em banco de dados relacional.
 
-Esta aplicação implementa um sistema CRUD (Create, Read, Update e Delete) para gerenciamento de usuários através de uma API REST.
-
-## Tecnologias Utilizadas
+## 🚀 Tecnologias Utilizadas
 
 * Java
-* Spring Boot
-* Spring Data JPA
-* MySQL
 * Maven
-
-## Funcionalidades
-
-* Criar usuário
-* Listar usuários
-* Buscar usuário por ID
-* Atualizar usuário
-* Excluir usuário
-
-## Estrutura do Projeto
-
-* Controller
-* Service
-* Repository
-* Model
-
-## Como Executar
-
-### Pré-requisitos
-
-* Java 17 ou superior
-* Maven
+* JDBC
 * MySQL
+* SQL
+* Programação Orientada a Objetos (POO)
 
-### Clone o projeto
+## 📋 Funcionalidades
+
+* Cadastrar produtos
+* Consultar produtos cadastrados
+* Atualizar informações de produtos
+* Excluir produtos
+* Persistência de dados em banco MySQL
+* Conexão com banco de dados utilizando JDBC
+
+## 🏗️ Estrutura do Projeto
+
+```text
+src
+│
+├── controllers
+│   └── ProdutoController
+│
+├── entities
+│   └── Produto
+│
+├── repositories
+│   └── ProdutoRepository
+│
+└── factories
+    └── ConnectionFactory
+```
+
+## 📊 Modelo de Dados
+
+```sql
+CREATE TABLE produtos(
+    id INTEGER AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(100),
+    preco DOUBLE,
+    quantidade INTEGER
+);
+```
+
+## 🖥️ Operações Disponíveis
+
+### Cadastro
+
+Permite registrar um novo produto informando:
+
+* Nome
+* Preço
+* Quantidade
+
+### Consulta
+
+Exibe todos os produtos cadastrados no banco de dados.
+
+### Atualização
+
+Permite alterar os dados de um produto existente através do ID.
+
+### Exclusão
+
+Remove um produto cadastrado utilizando seu ID.
+
+## ⚙️ Configuração do Banco de Dados
+
+Crie um banco de dados chamado:
+
+```text
+bd_produtos
+```
+
+Execute o script SQL disponível no projeto para criar a tabela de produtos.
+
+Configure as credenciais de acesso na classe:
+
+```java
+ConnectionFactory
+```
+
+## ▶️ Executando o Projeto
+
+Clone o repositório:
 
 ```bash
 git clone https://github.com/beatrizlima-tech/projeto-crud.git
 ```
 
-### Execute a aplicação
+Acesse a pasta do projeto e execute a aplicação Java.
 
-```bash
-mvn spring-boot:run
-```
+## 🎯 Objetivo do Projeto
 
-## Aprendizados
+Projeto desenvolvido para praticar:
 
-Durante o desenvolvimento deste projeto foram praticados:
+* Operações CRUD
+* JDBC
+* Integração Java com MySQL
+* Maven
+* Programação Orientada a Objetos
+* Persistência de dados
+* Organização em camadas
 
-* Desenvolvimento de APIs REST
-* Arquitetura em camadas
-* Integração com banco de dados MySQL
-* Persistência de dados com Spring Data JPA
-* Organização de projetos Spring Boot
-
-## Autora
+## 👩‍💻 Desenvolvedora
 
 Beatriz Lima
 
-Desenvolvedora Full Stack Java
+GitHub:
+https://github.com/beatrizlima-tech
