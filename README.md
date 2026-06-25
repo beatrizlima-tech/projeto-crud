@@ -1,155 +1,152 @@
-# 📦 CRUD de Produtos com Java, JDBC e MySQL
+# 📦 CRUD de Produtos
 
-Projeto desenvolvido para gerenciamento de produtos utilizando Java, JDBC e MySQL, implementando operações completas de CRUD (Create, Read, Update e Delete) com persistência em banco de dados relacional.
-
-A aplicação segue uma arquitetura organizada em camadas, separando responsabilidades entre Controller, Repository, Entity e Factory, aplicando conceitos fundamentais do desenvolvimento backend.
+![Java](https://img.shields.io/badge/Java-21-red?style=for-the-badge\&logo=openjdk)
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-Database-blue?style=for-the-badge\&logo=postgresql)
+![JDBC](https://img.shields.io/badge/JDBC-Database-orange?style=for-the-badge)
+![Maven](https://img.shields.io/badge/Maven-Build-red?style=for-the-badge\&logo=apachemaven)
+![Build](https://img.shields.io/badge/build-passing-brightgreen?style=for-the-badge)
+![License](https://img.shields.io/badge/license-MIT-lightgrey?style=for-the-badge)
 
 ---
 
-## 🚀 Tecnologias Utilizadas
+# 📌 Sobre o projeto
+
+O **CRUD de Produtos** é uma aplicação desenvolvida em **Java** para gerenciamento de produtos, implementando as operações de cadastro, consulta, atualização e exclusão de registros em um banco de dados PostgreSQL utilizando JDBC.
+
+O projeto foi desenvolvido com foco na prática de Programação Orientada a Objetos, integração com banco de dados relacional, arquitetura em camadas e boas práticas na organização do código.
+
+---
+
+# 🚀 Funcionalidades
+
+* Cadastro de produtos
+* Consulta de produtos cadastrados
+* Atualização de produtos
+* Exclusão de produtos
+* Persistência em banco de dados PostgreSQL
+* Interface baseada em menu via console
+
+---
+
+# 🧱 Tecnologias utilizadas
 
 * Java
-* Maven
 * JDBC
-* MySQL
+* PostgreSQL
 * SQL
+* Maven
 * Programação Orientada a Objetos (POO)
 
 ---
 
-## 📋 Funcionalidades
-
-### Cadastro de Produtos
-
-Permite registrar novos produtos informando:
-
-* Nome
-* Preço
-* Quantidade em estoque
-
-### Consulta de Produtos
-
-Lista todos os produtos cadastrados no banco de dados.
-
-### Atualização de Produtos
-
-Atualiza informações de produtos já cadastrados através do identificador único (ID).
-
-### Exclusão de Produtos
-
-Remove produtos da base de dados de forma segura utilizando o ID.
-
----
-
-## 🏛️ Arquitetura do Projeto
-
-O projeto foi estruturado seguindo o padrão de separação de responsabilidades:
+# 🏗️ Estrutura do projeto
 
 ```text
-src
-│
+src/
+
 ├── controllers
 │   └── ProdutoController
 │
 ├── entities
 │   └── Produto
 │
-├── repositories
-│   └── ProdutoRepository
+├── factories
+│   └── ConnectionFactory
 │
-└── factories
-    └── ConnectionFactory
-```
-
-### Camadas
-
-| Camada     | Responsabilidade                  |
-| ---------- | --------------------------------- |
-| Controller | Receber entradas do usuário       |
-| Entity     | Representar os dados da aplicação |
-| Repository | Executar operações no banco       |
-| Factory    | Gerenciar conexões com o banco    |
-
----
-
-## 🗄️ Banco de Dados
-
-### Estrutura da Tabela
-
-```sql
-CREATE TABLE produtos(
-    id INTEGER AUTO_INCREMENT PRIMARY KEY,
-    nome VARCHAR(100),
-    preco DOUBLE,
-    quantidade INTEGER
-);
-```
-
-### Banco Utilizado
-
-```text
-MySQL
-```
-
-### Nome do Banco
-
-```text
-bd_produtos
+└── repositories
+    └── ProdutoRepository
 ```
 
 ---
 
-## 🔌 Conexão com Banco de Dados
+# 🔗 Funcionalidades disponíveis
 
-A conexão é realizada através da classe:
-
-```java
-ConnectionFactory
-```
-
-Utilizando:
-
-* JDBC
-* Driver MySQL Connector/J
-* Maven para gerenciamento de dependências
+| Operação    | Descrição                         |
+| ----------- | --------------------------------- |
+| Cadastro    | Inserção de novos produtos        |
+| Consulta    | Listagem dos produtos cadastrados |
+| Atualização | Alteração de produtos existentes  |
+| Exclusão    | Remoção de produtos pelo ID       |
 
 ---
 
-## ▶️ Como Executar
+# ⚙️ Como executar o projeto
 
-### 1. Clonar o projeto
+### 1. Clone o repositório
 
 ```bash
-git clone https://github.com/beatrizlima-tech/projeto-crud.git
+git clone https://github.com/beatrizlima-tech/projetoCrud.git
 ```
 
-### 2. Criar o banco
+### 2. Crie o banco de dados
 
 ```sql
-CREATE DATABASE bd_produtos;
+CREATE DATABASE bdaula03;
 ```
 
-### 3. Executar o script da tabela
+### 3. Execute o script SQL
 
-Disponível no projeto.
+Utilize o script disponível no projeto para criar a tabela **produtos**.
 
-### 4. Configurar usuário e senha
+### 4. Configure a conexão
 
-Arquivo:
+Caso necessário, altere os dados da classe:
 
-```java
+```text
 ConnectionFactory.java
 ```
 
-### 5. Executar a aplicação
+com as credenciais do seu PostgreSQL.
 
-A aplicação poderá ser executada diretamente pela IDE.
+### 5. Execute a aplicação
+
+Abra o projeto em uma IDE Java (IntelliJ IDEA ou Eclipse) e execute a classe principal.
 
 ---
 
-## 📚 Conceitos Praticados
+# 🗄️ Banco de dados
 
-Durante o desenvolvimento foram aplicados:
+Tabela utilizada:
+
+```sql
+CREATE TABLE produtos(
+    id SERIAL PRIMARY KEY,
+    nome VARCHAR(100) NOT NULL,
+    preco NUMERIC(10,2) NOT NULL,
+    quantidade INTEGER NOT NULL,
+    data_criacao TIMESTAMP DEFAULT NOW()
+);
+```
+
+Banco de dados:
+
+```text
+PostgreSQL
+```
+
+---
+
+# 📊 Arquitetura
+
+```text
+Usuário
+   │
+   ▼
+Controller
+   │
+   ▼
+Repository
+   │
+   ▼
+JDBC
+   │
+   ▼
+PostgreSQL
+```
+
+---
+
+# 📚 Conceitos aplicados
 
 * Programação Orientada a Objetos
 * Encapsulamento
@@ -157,23 +154,28 @@ Durante o desenvolvimento foram aplicados:
 * SQL
 * CRUD
 * Arquitetura em Camadas
-* Conexão com Banco de Dados
-* Maven
-* Tratamento de Exceções
+* Manipulação de dados em banco relacional
+* Tratamento de exceções
+* Organização em pacotes
 
 ---
 
-## 🎯 Objetivo
+# 📌 Melhorias futuras
 
-Este projeto foi desenvolvido com foco no aprendizado de integração entre aplicações Java e bancos de dados relacionais, explorando operações CRUD e boas práticas de organização de código backend.
+* Implementar validações de entrada
+* Adicionar interface gráfica
+* Migrar JDBC para Spring Data JPA
+* Criar testes automatizados
+* Dockerizar a aplicação
 
 ---
 
-## 👩‍💻 Desenvolvedora
+# 👩‍💻 Autora
 
-**Beatriz Lima**
+Desenvolvido por **Beatriz Lima**
 
-Desenvolvedora Java Full Stack em formação.
-
-GitHub:
+🔗 GitHub
 https://github.com/beatrizlima-tech
+
+💼 LinkedIn
+https://www.linkedin.com/in/beatrizlima-tech
